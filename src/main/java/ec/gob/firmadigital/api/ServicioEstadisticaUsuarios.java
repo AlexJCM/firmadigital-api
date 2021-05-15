@@ -41,9 +41,9 @@ import javax.ws.rs.core.MediaType;
 public class ServicioEstadisticaUsuarios {
 
     // Servicio REST interno
-    private static final String REST_SERVICE_URL = "http://localhost:8180/servicio/estadisticausuarios";
-   // private static final String REST_SERVICE_URL = "https://ws.firmadigital.gob.ec/servicio/estadisticausuarios";
-//    private static final String REST_SERVICE_URL = "https://wsfederada.firmadigital.gob.ec/servicio/estadisticausuarios";
+    private static final String REST_SERVICE_URL = "http://localhost:8180/servicio/estadisticausuarios";    
+    //private static final String REST_SERVICE_URL = "http://190.96.96.153:7776/servicio/estadisticausuarios";
+
 
     private static final Logger logger = Logger.getLogger(ServicioEstadisticaUsuarios.class.getName());
 

@@ -42,9 +42,8 @@ public class ServicioEstadisticaDocumentosFirmados {
 
     // Servicio REST interno
     private static final String REST_SERVICE_URL = "http://localhost:8180/servicio/estadisticadocumentosfirmados";
-    //private static final String REST_SERVICE_URL = "https://ws.firmadigital.gob.ec/servicio/estadisticadocumentosfirmados";   
-    //    private static final String REST_SERVICE_URL = "https://wsfederada.firmadigital.gob.ec/servicio/estadisticadocumentosfirmados";
-
+    //private static final String REST_SERVICE_URL = "http://190.96.96.153:7776/servicio/estadisticadocumentosfirmados";
+        
     private static final Logger logger = Logger.getLogger(ServicioEstadisticaDocumentosFirmados.class.getName());
 
     @GET

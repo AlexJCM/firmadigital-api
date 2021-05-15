@@ -31,7 +31,9 @@ import java.util.logging.Logger;
  */
 public class PruebaServicioCertificado {
 
-    private static final String CERTIFICADO_URL = "https://api.firmadigital.gob.ec/api/certificado/revocado";
+    //private static final String CERTIFICADO_URL = "https://api.firmadigital.gob.ec/api/certificado/revocado";
+    //private static final String CERTIFICADO_URL = "http://190.96.96.153:7776/api/certificado/revocado";
+    private static final String CERTIFICADO_URL = "http://localhost:8180/api/certificado/revocado";
 
     private static final Logger logger = Logger.getLogger(PruebaServicioCertificado.class.getName());
 

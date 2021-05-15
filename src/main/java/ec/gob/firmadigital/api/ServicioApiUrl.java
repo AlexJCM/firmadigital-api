@@ -41,8 +41,7 @@ public class ServicioApiUrl {
 
     // Servicio REST interno
     private static final String REST_SERVICE_URL = "http://localhost:8180/servicio/apiurl";
-    //private static final String REST_SERVICE_URL = "https://ws.firmadigital.gob.ec/servicio/apiurl";
-//    private static final String REST_SERVICE_URL = "https://wsfederada.firmadigital.gob.ec/servicio/apiurl";
+    //private static final String REST_SERVICE_URL = "http://190.96.96.153:7776/servicio/apiurl";
 
     private static final Logger logger = Logger.getLogger(ServicioApiUrl.class.getName());
 
