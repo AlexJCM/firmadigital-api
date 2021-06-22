@@ -1,5 +1,9 @@
 = Firma Digital: API
 
+image:https://travis-ci.com/AlexJCM/firmadigital-api.svg?token=cqT9Kb3qnxCpDB8s2vMV&branch=main["Build Status", link="https://travis-ci.com/AlexJCM/firmadigital-api"]
+image:https://img.shields.io/badge/License-AGPL%20v3-blue.svg[License: AGPL v3, link=https://www.gnu.org/licenses/agpl-3.0] 
+
+
 Este proyecto implementa los servicios REST para la aplicación de Firma Digital de la Secretaría Nacional de la Administración Pública del Ecuador.
 
 == Cómo compilar
@@ -13,3 +17,12 @@ mvn clean package
 == Cómo desplegar
 
 Se debe copiar el archivo `target/api.war` a la carpeta `standalone/deploy` de un servidor de aplicaciones WildFly 20.0.0
+
+== Documentación
+
+Ver documentación en: https://alexjcm.github.io/firmadigital-api
+
+== Licencia
+
+Este proyecto está licenciado bajo la licencia AGPL v3.
+Revise el archivo <<LICENSE, LICENSE>> para más detalles.
