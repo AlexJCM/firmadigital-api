@@ -47,7 +47,7 @@ import javax.ws.rs.core.Response.Status;
 public class ServicioFirmaDigital {
 
     // Servicio REST interno
-    private static final String REST_SERVICE_URL = "http://localhost:8180/servicio/documentos";
+    private static final String REST_SERVICE_URL = "http://localhost:8080/servicio/documentos";
     //private static final String REST_SERVICE_URL = "http://190.96.96.153:7776/servicio/documentos";
 
     /**
