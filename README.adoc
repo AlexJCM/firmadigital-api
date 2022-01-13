@@ -10,13 +10,13 @@ Los siguientes pasos le permitirán obtener una copia del proyecto para correrla
 
 === Pre-requisitos
 
-- WildFly Application Server 20.- Para desplegar la aplicación se necesita un servidor de aplicaciones *Java EE 8* disponible en http://www.wildfly.org[wildfly.org]
+- WildFly Application Server 20.- Para desplegar la aplicación se necesita un servidor de aplicaciones *Java EE 7* disponible en http://www.wildfly.org[wildfly.org]
 
 - Maven 3.- Para compilar y empaquetar se utiliza http://maven.apache.org[Apache Maven].
 
 - JDK 1.8
 
-- Postgresql 11
+- Postgresql 12
 
 == Instalación
 
@@ -28,13 +28,13 @@ mvn clean package
 
 == Cómo desplegar
 
-Se debe copiar el archivo `target/api.war` a la carpeta `standalone/deploy` de un servidor de aplicaciones WildFly 20.0.0
+Se debe copiar el archivo `target/api.war` a la carpeta `standalone/deploy` de un servidor de aplicaciones WildFly 20
 
 == Documentación
 
-Ver documentación en: https://alexjcm.github.io/firmadigital-api
+https://alexjcm.github.io/firmadigital-api[Ver documentación]
 
 == Licencia
 
 Este proyecto está licenciado bajo la licencia AGPL v3.
-Revise el archivo <<LICENSE, LICENSE>> para más detalles.
+Revise el archivo link:LICENSE[LICENSE] para más detalles.
