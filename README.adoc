@@ -6,17 +6,16 @@ image:https://img.shields.io/badge/License-AGPL%20v3-blue.svg[License: AGPL v3, 
 _Firma Digital API_ es un proyecto que implementa los servicios web REST para la aplicación de Firma Digital.
 
 == Introducción
+
 Los siguientes pasos le permitirán obtener una copia del proyecto para correrla en la máquina local para propósitos de desarrollo y pruebas.
 
 === Pre-requisitos
 
+- Open JDK 8
+
 - WildFly Application Server 20.- Para desplegar la aplicación se necesita un servidor de aplicaciones *Java EE 7* disponible en http://www.wildfly.org[wildfly.org]
 
 - Maven 3.- Para compilar y empaquetar se utiliza http://maven.apache.org[Apache Maven].
-
-- JDK 1.8
-
-- Postgresql 12
 
 == Instalación
 

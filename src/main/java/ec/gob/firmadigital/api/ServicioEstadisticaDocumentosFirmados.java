@@ -41,7 +41,7 @@ import javax.ws.rs.core.MediaType;
 public class ServicioEstadisticaDocumentosFirmados {
 
     // Servicio REST interno
-    private static final String REST_SERVICE_URL = "http://localhost:7776/servicio/estadisticadocumentosfirmados";
+    private static final String REST_SERVICE_URL = BaseConstants.BASE_URL + "/servicio/estadisticadocumentosfirmados";
      
     private static final Logger logger = Logger.getLogger(ServicioEstadisticaDocumentosFirmados.class.getName());
 

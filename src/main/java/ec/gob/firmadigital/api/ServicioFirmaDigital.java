@@ -47,7 +47,7 @@ import javax.ws.rs.core.Response.Status;
 public class ServicioFirmaDigital {
 
     // Servicio REST interno
-    private static final String REST_SERVICE_URL = "http://localhost:7776/servicio/documentos";
+    private static final String REST_SERVICE_URL = BaseConstants.BASE_URL + "/servicio/documentos";
 
     /**
      * Obterner un documento mediante una invocación REST

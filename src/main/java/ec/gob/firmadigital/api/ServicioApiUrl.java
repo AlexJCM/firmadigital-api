@@ -40,7 +40,7 @@ import javax.ws.rs.core.MediaType;
 public class ServicioApiUrl {
 
     // Servicio REST interno
-    private static final String REST_SERVICE_URL = "http://localhost:7776/servicio/apiurl";
+    private static final String REST_SERVICE_URL =  BaseConstants.BASE_URL + "/servicio/apiurl";
 
     private static final Logger logger = Logger.getLogger(ServicioApiUrl.class.getName());
 

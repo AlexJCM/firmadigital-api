@@ -37,7 +37,7 @@ import javax.ws.rs.core.MediaType;
 public class ServicioCertificado {
 
     // Servicio REST interno
-    private static final String REST_SERVICE_URL = "http://localhost:7776/servicio/certificado";
+    private static final String REST_SERVICE_URL = BaseConstants.BASE_URL + "/servicio/certificado";
 
     @GET
     @Path("/revocado/{serial}")
