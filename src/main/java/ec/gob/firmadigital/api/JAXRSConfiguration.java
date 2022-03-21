@@ -19,12 +19,12 @@ import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
 /**
- * Configuración de la aplicacion REST. Permite especificar la ruta que será 
- * la URI base para todos los URI de recursos especificados como clases o 
- * métodos con anotaciones Path. 
+ * Configuración de la aplicacion REST. Permite especificar la ruta que será la URI base para todos
+ * los URI de recursos especificados como clases o métodos con anotaciones Path.
  *
- * @author Ricardo Arguello <ricardo.arguello@soportelibre.com>
+ * @author Ricardo Arguello
  */
 @ApplicationPath("")
 public class JAXRSConfiguration extends Application {
+
 }

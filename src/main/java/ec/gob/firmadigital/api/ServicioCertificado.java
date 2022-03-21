@@ -15,8 +15,10 @@
  */
 package ec.gob.firmadigital.api;
 
-import java.math.BigInteger;
+import static ec.gob.firmadigital.api.BaseConstants.BASE_URL;
+import static ec.gob.firmadigital.api.BaseConstants.SERVICE_CONTEXT;
 
+import java.math.BigInteger;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -31,20 +33,21 @@ import javax.ws.rs.core.MediaType;
 /**
  * Este servicio permite verificar si un certificado está revocado.
  *
- * @author Ricardo Arguello <ricardo.arguello@soportelibre.com>
+ * @author Ricardo Arguello
  */
 @Path("/certificado")
 public class ServicioCertificado {
 
     // Servicio REST interno
-    private static final String REST_SERVICE_URL = BaseConstants.BASE_URL + "/servicio/certificado";
+    private static final String REST_SERVICE_URL = BASE_URL + SERVICE_CONTEXT + "/certificado";
 
     @GET
     @Path("/revocado/{serial}")
     @Produces(MediaType.TEXT_PLAIN)
     public String validarCertificado(@PathParam("serial") BigInteger serial) {
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(REST_SERVICE_URL + "/revocado").path("{serial}").resolveTemplate("serial",
+        WebTarget target = client.target(REST_SERVICE_URL + "/revocado").path("{serial}")
+            .resolveTemplate("serial",
                 serial);
         Builder builder = target.request(MediaType.TEXT_PLAIN);
         Invocation invocation = builder.buildGet();
@@ -56,7 +59,8 @@ public class ServicioCertificado {
     @Produces(MediaType.TEXT_PLAIN)
     public String validarFechaRevocado(@PathParam("serial") BigInteger serial) {
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(REST_SERVICE_URL + "/fechaRevocado").path("{serial}").resolveTemplate("serial",
+        WebTarget target = client.target(REST_SERVICE_URL + "/fechaRevocado").path("{serial}")
+            .resolveTemplate("serial",
                 serial);
         Builder builder = target.request(MediaType.TEXT_PLAIN);
         Invocation invocation = builder.buildGet();

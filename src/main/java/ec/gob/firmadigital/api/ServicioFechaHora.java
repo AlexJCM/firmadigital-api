@@ -17,7 +17,6 @@ package ec.gob.firmadigital.api;
 
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -27,7 +26,7 @@ import javax.ws.rs.core.MediaType;
  * Este servicio permite obtener la fecha y hora del servidor en formato ISO-8601.
  * Por ejemplo: "2017-08-27T17:54:43.562-05:00"
  *
- * @author Ricardo Arguello <ricardo.arguello@soportelibre.com>
+ * @author Ricardo Arguello
  */
 @Path("/fecha-hora")
 public class ServicioFechaHora {

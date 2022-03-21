@@ -17,9 +17,11 @@
 
 package ec.gob.firmadigital.api;
 
+import static ec.gob.firmadigital.api.BaseConstants.BASE_URL;
+import static ec.gob.firmadigital.api.BaseConstants.SERVICE_CONTEXT;
+
 import java.util.logging.Logger;
 import javax.ws.rs.Consumes;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.Path;
@@ -41,9 +43,11 @@ import javax.ws.rs.core.MediaType;
 public class ServicioEstadisticaUsuarios {
 
     // Servicio REST interno
-    private static final String REST_SERVICE_URL = BaseConstants.BASE_URL + "/servicio/estadisticausuarios";
+    private static final String REST_SERVICE_URL =
+        BASE_URL + SERVICE_CONTEXT + "/estadisticausuarios";
 
-    private static final Logger logger = Logger.getLogger(ServicioEstadisticaUsuarios.class.getName());
+    private static final Logger logger = Logger.getLogger(
+        ServicioEstadisticaUsuarios.class.getName());
 
     @GET
     @Path("{json}")
@@ -60,7 +64,8 @@ public class ServicioEstadisticaUsuarios {
 
     private String buscarPorFechaDesdeFechaHasta(String json) throws NotFoundException {
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(REST_SERVICE_URL).path("{json}").resolveTemplate("json", json);
+        WebTarget target = client.target(REST_SERVICE_URL).path("{json}")
+            .resolveTemplate("json", json);
         Builder builder = target.request();
         Invocation invocation = builder.buildGet();
         return invocation.invoke(String.class);

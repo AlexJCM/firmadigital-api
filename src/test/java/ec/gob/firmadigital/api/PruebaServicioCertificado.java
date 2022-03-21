@@ -24,17 +24,17 @@ import java.net.URL;
 import java.util.logging.Logger;
 
 /**
- * Esta clase permite probar el servicio REST que verifica un certificado
- * digital mediante el CRL almacenado en la base de datos del servicio.
+ * Esta clase permite probar el servicio REST que verifica un certificado digital mediante el CRL
+ * almacenado en la base de datos del servicio.
  *
- * @author Ricardo Arguello <ricardo.arguello@soportelibre.com>
+ * @author Ricardo Arguello
  */
 public class PruebaServicioCertificado {
 
-    //private static final String CERTIFICADO_URL = "https://api.firmadigital.gob.ec/api/certificado/revocado";
     private static final String CERTIFICADO_URL = "http://localhost:7776/api/certificado/revocado";
 
-    private static final Logger logger = Logger.getLogger(PruebaServicioCertificado.class.getName());
+    private static final Logger logger = Logger.getLogger(
+        PruebaServicioCertificado.class.getName());
 
     public boolean verificarCrlServidor(int serial) throws IOException {
         URL url = new URL(CERTIFICADO_URL + "/" + serial);
