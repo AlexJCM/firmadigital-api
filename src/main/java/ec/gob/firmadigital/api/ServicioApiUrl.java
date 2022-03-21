@@ -17,8 +17,10 @@
 
 package ec.gob.firmadigital.api;
 
-import java.util.logging.Logger;
+import static ec.gob.firmadigital.api.BaseConstants.BASE_URL;
+import static ec.gob.firmadigital.api.BaseConstants.SERVICE_CONTEXT;
 
+import java.util.logging.Logger;
 import javax.ws.rs.GET;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.Path;
@@ -34,13 +36,13 @@ import javax.ws.rs.core.MediaType;
 /**
  * Permite validar la si un API URL es permitido.
  *
- * @author Ricardo Arguello <ricardo.arguello@soportelibre.com>
+ * @author Ricardo Arguello
  */
 @Path("/url")
 public class ServicioApiUrl {
 
     // Servicio REST interno
-    private static final String REST_SERVICE_URL =  BaseConstants.BASE_URL + "/servicio/apiurl";
+    private static final String REST_SERVICE_URL = BASE_URL + SERVICE_CONTEXT + "/apiurl";
 
     private static final Logger logger = Logger.getLogger(ServicioApiUrl.class.getName());
 
@@ -58,7 +60,8 @@ public class ServicioApiUrl {
 
     private String buscarUrl(String base64) throws NotFoundException {
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(REST_SERVICE_URL).path("{base64}").resolveTemplate("base64", base64);
+        WebTarget target = client.target(REST_SERVICE_URL).path("{base64}")
+            .resolveTemplate("base64", base64);
         Builder builder = target.request();
         Invocation invocation = builder.buildGet();
         return invocation.invoke(String.class);

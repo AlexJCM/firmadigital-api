@@ -22,13 +22,12 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAccessor;
 import java.util.Date;
 import java.util.logging.Logger;
-
 import org.junit.Test;
 
 /**
  * Prueba para ServicioFechaHora
  *
- * @author Ricardo Arguello <ricardo.arguello@soportelibre.com>
+ * @author Ricardo Arguello
  */
 public class ServicioFechaHoraTest {
 
