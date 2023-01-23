@@ -1,5 +1,6 @@
 /*
  * Firma Digital: API
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -18,12 +19,10 @@ package ec.gob.firmadigital.api;
 import static ec.gob.firmadigital.api.BaseConstants.BASE_URL;
 import static ec.gob.firmadigital.api.BaseConstants.SERVICE_CONTEXT;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
+import java.util.logging.Logger;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
+
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -37,47 +36,27 @@ import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
 
 /**
- * Este servicio permite obtener la fecha y hora del servidor en formato
- * ISO-8601.
+ * Permite validar la versión permitido.
  *
- * @author Ricardo Arguello <ricardo.arguello@soportelibre.com>
+ * @author Christian Espinosa <christian.espinosa@mintel.gob.ec>, Misael
+ * Fernández
  */
-@Path("/fecha-hora")
-public class ServicioFechaHora {
+@Path("/version")
+public class ServicioVersion {
 
     // Servicio REST interno
     private static final String REST_SERVICE_URL = BASE_URL + SERVICE_CONTEXT + "/version";
 
-    /**
-     * Retorna la fecha y hora del servidor, en formato ISO-8601. Por ejemplo:
-     * "2017-08-27T17:54:43.562-05:00"
-     *
-     * @param base64
-     * @return Hora y fecha actual
-     */
+    private static final Logger logger = Logger.getLogger(ServicioVersion.class.getName());
+
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.TEXT_PLAIN)
-    public String getFechaHora(@FormParam("base64") String base64) {
+    public String validarEndpoint(@FormParam("base64") String base64) {
         try {
-            String respuesta = buscarVersion(base64);
-
-            String resultado;
-            try {
-                JsonObject jsonObject = new Gson().fromJson(respuesta, JsonObject.class);
-                resultado = jsonObject.get("resultado").getAsString();
-            } catch (NullPointerException | com.google.gson.JsonSyntaxException e) {
-                return null;
-            }
-
-            if (resultado.equals("Version enabled")) {
-                return ZonedDateTime.now().format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
-            } else {
-                return null;
-            }
+            return buscarVersion(base64);
         } catch (NotFoundException e) {
-            return null;
-//            return "No se encuentra el servidor de búsqueda";
+            return "No se encuentra el servidor de búsqueda";
         }
     }
 

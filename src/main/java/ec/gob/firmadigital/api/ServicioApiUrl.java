@@ -29,7 +29,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.Invocation.Builder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
@@ -60,9 +59,8 @@ public class ServicioApiUrl {
 
     private String buscarUrl(String base64) throws NotFoundException {
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(REST_SERVICE_URL).path("{base64}")
-            .resolveTemplate("base64", base64);
-        Builder builder = target.request();
+        WebTarget target = client.target(REST_SERVICE_URL).path("{base64}").resolveTemplate("base64", base64);
+        Invocation.Builder builder = target.request();
         Invocation invocation = builder.buildGet();
         return invocation.invoke(String.class);
     }
