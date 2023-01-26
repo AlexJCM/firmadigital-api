@@ -1,5 +1,6 @@
 /*
  * Firma Digital: API
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -18,16 +19,12 @@ package ec.gob.firmadigital.api;
 import static ec.gob.firmadigital.api.BaseConstants.BASE_URL;
 import static ec.gob.firmadigital.api.BaseConstants.SERVICE_CONTEXT;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
@@ -37,55 +34,34 @@ import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
 
 /**
- * Este servicio permite obtener la fecha y hora del servidor en formato
- * ISO-8601.
+ * REST Web Service
  *
- * @author Ricardo Arguello <ricardo.arguello@soportelibre.com>
+ * @author Christian Espinosa <christian.espinosa@mintel.gob.ec>, Misael
+ * Fernández
  */
-@Path("/fecha-hora")
-public class ServicioFechaHora {
+@Path("/appverificardocumento")
+public class ServicioAppVerificarDocumento {
 
     // Servicio REST interno
-    private static final String REST_SERVICE_URL = BASE_URL + SERVICE_CONTEXT + "/version";
+    private static final String REST_SERVICE_URL = BASE_URL + SERVICE_CONTEXT + "/appverificardocumento";
 
-    /**
-     * Retorna la fecha y hora del servidor, en formato ISO-8601. Por ejemplo:
-     * "2017-08-27T17:54:43.562-05:00"
-     *
-     * @param base64
-     * @return Hora y fecha actual
-     */
     @POST
+    @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getFechaHora(@FormParam("base64") String base64) {
+    public String verificarEndpointPost(@FormParam("documento") String documento, @FormParam("base64") String base64) {
         try {
-            String respuesta = buscarVersion(base64);
-
-            String resultado;
-            try {
-                JsonObject jsonObject = new Gson().fromJson(respuesta, JsonObject.class);
-                resultado = jsonObject.get("resultado").getAsString();
-            } catch (NullPointerException | com.google.gson.JsonSyntaxException e) {
-                return null;
-            }
-
-            if (resultado.equals("Version enabled")) {
-                return ZonedDateTime.now().format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
-            } else {
-                return null;
-            }
+            return verificarDocumento(documento, base64);
         } catch (NotFoundException e) {
-            return null;
-//            return "No se encuentra el servidor de búsqueda";
+            return "No se encuentra el servidor de búsqueda";
         }
     }
 
-    private String buscarVersion(String base64) throws NotFoundException {
+    private String verificarDocumento(String documento, String base64) throws NotFoundException {
         Client client = ClientBuilder.newClient();
         WebTarget target = client.target(REST_SERVICE_URL);
         Invocation.Builder builder = target.request();
         Form form = new Form();
+        form.param("documento", documento);
         form.param("base64", base64);
         Invocation invocation = builder.buildPost(Entity.form(form));
         return invocation.invoke(String.class);

@@ -13,7 +13,7 @@ Los siguientes pasos le permitirán obtener una copia del proyecto para correrla
 
 - Open JDK 8
 
-- WildFly Application Server 20.- Para desplegar la aplicación se necesita un servidor de aplicaciones *Java EE 7* disponible en http://www.wildfly.org[wildfly.org]
+- WildFly Application Server 21.- Para desplegar la aplicación se necesita un servidor de aplicaciones *Java EE 7* disponible en http://www.wildfly.org[wildfly.org]
 
 - Maven 3.- Para compilar y empaquetar se utiliza http://maven.apache.org[Apache Maven].
 
@@ -27,7 +27,7 @@ mvn clean package
 
 == Cómo desplegar
 
-Se debe copiar el archivo `target/api.war` a la carpeta `standalone/deploy` de un servidor de aplicaciones WildFly 20
+Se debe copiar el archivo `target/api.war` a la carpeta `standalone/deploy` de un servidor de aplicaciones WildFly 21.0.2
 
 == Documentación
 

@@ -30,7 +30,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.Invocation.Builder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
@@ -43,11 +42,9 @@ import javax.ws.rs.core.MediaType;
 public class ServicioEstadisticaUsuarios {
 
     // Servicio REST interno
-    private static final String REST_SERVICE_URL =
-        BASE_URL + SERVICE_CONTEXT + "/estadisticausuarios";
+    private static final String REST_SERVICE_URL = BASE_URL + SERVICE_CONTEXT + "/estadisticausuarios";
 
-    private static final Logger logger = Logger.getLogger(
-        ServicioEstadisticaUsuarios.class.getName());
+    private static final Logger logger = Logger.getLogger(ServicioEstadisticaUsuarios.class.getName());
 
     @GET
     @Path("{json}")
@@ -64,9 +61,8 @@ public class ServicioEstadisticaUsuarios {
 
     private String buscarPorFechaDesdeFechaHasta(String json) throws NotFoundException {
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(REST_SERVICE_URL).path("{json}")
-            .resolveTemplate("json", json);
-        Builder builder = target.request();
+        WebTarget target = client.target(REST_SERVICE_URL).path("{json}").resolveTemplate("json", json);
+        Invocation.Builder builder = target.request();
         Invocation invocation = builder.buildGet();
         return invocation.invoke(String.class);
     }

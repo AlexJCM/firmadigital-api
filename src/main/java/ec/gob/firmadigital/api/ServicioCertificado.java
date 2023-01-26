@@ -26,14 +26,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.Invocation.Builder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
 /**
  * Este servicio permite verificar si un certificado está revocado.
  *
- * @author Ricardo Arguello
+ * @author Ricardo Arguello <ricardo.arguello@soportelibre.com>
  */
 @Path("/certificado")
 public class ServicioCertificado {
@@ -46,10 +45,9 @@ public class ServicioCertificado {
     @Produces(MediaType.TEXT_PLAIN)
     public String validarCertificado(@PathParam("serial") BigInteger serial) {
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(REST_SERVICE_URL + "/revocado").path("{serial}")
-            .resolveTemplate("serial",
+        WebTarget target = client.target(REST_SERVICE_URL + "/revocado").path("{serial}").resolveTemplate("serial",
                 serial);
-        Builder builder = target.request(MediaType.TEXT_PLAIN);
+        Invocation.Builder builder = target.request();
         Invocation invocation = builder.buildGet();
         return invocation.invoke(String.class);
     }
@@ -59,10 +57,9 @@ public class ServicioCertificado {
     @Produces(MediaType.TEXT_PLAIN)
     public String validarFechaRevocado(@PathParam("serial") BigInteger serial) {
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(REST_SERVICE_URL + "/fechaRevocado").path("{serial}")
-            .resolveTemplate("serial",
+        WebTarget target = client.target(REST_SERVICE_URL + "/fechaRevocado").path("{serial}").resolveTemplate("serial",
                 serial);
-        Builder builder = target.request(MediaType.TEXT_PLAIN);
+        Invocation.Builder builder = target.request();
         Invocation invocation = builder.buildGet();
         return invocation.invoke(String.class);
     }
