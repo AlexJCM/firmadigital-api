@@ -3,7 +3,7 @@
 image:https://github.com/alexjcm/firmadigital-api/actions/workflows/main.yml/badge.svg["Build and testing", link="https://github.com/alexjcm/firmadigital-api/actions/workflows/main.yml"]
 image:https://img.shields.io/badge/License-AGPL%20v3-blue.svg[License: AGPL v3, link=https://www.gnu.org/licenses/agpl-3.0] 
 
-_Firma Digital API_ es un proyecto que implementa los servicios web REST para la aplicación de Firma Digital.
+_Firma Digital API_ es un proyecto que implementa los servicios web REST para la aplicación FirmaEC.
 
 == Introducción
 
@@ -11,9 +11,9 @@ Los siguientes pasos le permitirán obtener una copia del proyecto para correrla
 
 === Pre-requisitos
 
-- Open JDK 8
+- Java Development Kit (JDK) 11.- Para compilar y ejecutar la aplicación.
 
-- WildFly Application Server 21.- Para desplegar la aplicación se necesita un servidor de aplicaciones *Java EE 7* disponible en http://www.wildfly.org[wildfly.org]
+- WildFly Application Server 29.- Para desplegar la aplicación se necesita un servidor de aplicaciones *Java EE 7* disponible en http://www.wildfly.org[wildfly.org]
 
 - Maven 3.- Para compilar y empaquetar se utiliza http://maven.apache.org[Apache Maven].
 
@@ -27,7 +27,7 @@ mvn clean package
 
 == Cómo desplegar
 
-Se debe copiar el archivo `target/api.war` a la carpeta `standalone/deploy` de un servidor de aplicaciones WildFly 21.0.2
+Se debe copiar el archivo `target/api.war` a la carpeta `standalone/deploy` de un servidor de aplicaciones WildFly 29
 
 == Documentación
 

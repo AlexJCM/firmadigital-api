@@ -15,14 +15,13 @@
  */
 package ec.gob.firmadigital.api;
 
-import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
+import jakarta.ws.rs.ApplicationPath;
+import jakarta.ws.rs.core.Application;
 
 /**
- * Configuración de la aplicacion REST. Permite especificar la ruta que será la URI base para todos
- * los URI de recursos especificados como clases o métodos con anotaciones Path.
+ * Configuración de la aplicacion REST
  *
- * @author Ricardo Arguello
+ * @author Ricardo Arguello <ricardo.arguello@soportelibre.com>
  */
 @ApplicationPath("")
 public class JAXRSConfiguration extends Application {

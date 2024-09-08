@@ -11,10 +11,11 @@ public final class BaseConstants {
     }
 
     /**
-     * Se utiliza localhost debido a que el servicio web rest se encuentra en el mismo servidor de
-     * la api rest. En caso de que estén en servidores diferentes se deberá utilizar la url pública
-     * correspondiente. Por ejemplo:
-     *      https://ws.firmadigital.gob.ec
+     * Se utiliza localhost si el servicio web rest se encuentra en el mismo servidor donde
+     * esta desplegado api rest. Si estan en servidores diferentes se deberá utilizar la url pública
+     * correspondiente.
+     * Por ejemplo:
+     *      http://wsmobile.firmadigital.gob.ec:8080
      *      http://impws.firmadigital.gob.ec:8080
      */
     public static final String BASE_URL = "http://localhost:7776";
